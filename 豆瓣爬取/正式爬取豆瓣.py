@@ -22,5 +22,4 @@ for re in res:
     Worksheet.write(i,0,re)
     i=i+1
     print(re)
-
 Workbook.save('doubanmovie.xls')

@@ -50,7 +50,7 @@ def getData(baseurl):
             # print(item)    # 测试查看电影item全部信息
             data = []  # 保存一部电影的所有信息
             item = str(item)
-
+          g
             link = re.findall(findlink, item)[0]  # re库通过正则表达式用来查找指定字符串    # [0]表示如果得到的是个列表，则拿到第一个元素
             data.append(link)  # 添加链接到数据库
 

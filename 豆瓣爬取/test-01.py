@@ -12,7 +12,7 @@ headers={
 response = requests.get(url=url,params=params,headers=headers)
 html=response.text
 html=html.encode()
-with open('douban.html','wb') as fp:
+with open('../douban.html', 'wb') as fp:
     fp.write(html)
 
 
