@@ -1,6 +1,5 @@
 import requests
-from selenium import webdriver
-import  re
+
 import xlrd
 
 def main():

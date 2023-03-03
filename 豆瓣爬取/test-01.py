@@ -1,6 +1,4 @@
-
 import requests
-import urllib
 url="https://movie.douban.com/top250"
 params={
  'start': '25',
@@ -12,7 +10,7 @@ headers={
 response = requests.get(url=url,params=params,headers=headers)
 html=response.text
 html=html.encode()
-with open('../douban.html', 'wb') as fp:
+with open('./douban.html', 'wb') as fp:
     fp.write(html)
 
 

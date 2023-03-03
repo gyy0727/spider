@@ -26,7 +26,7 @@ time.sleep(random.random())
 #print(response.text)
 json_str=re.findall(r'g_page_config = (.*);',response.text)[0]
 json_dict=json.loads(json_str)
-print(json_str)
+#print(json_str)
 auctions=json_dict['mods']['itemlist']['data']['auctions']
 i=1
 j=1
@@ -35,7 +35,7 @@ l=1
 m=1
 n=1
 Workbook=xlwt.Workbook(encoding='utf-8')
-Worksheet=Workbook.add_sheet("%s"%(url))
+Worksheet=Workbook.add_sheet("taobao")
 Worksheet.write(0,0,'商品名称')
 Worksheet.write(0,1,'图片网站')
 Worksheet.write(0,2,'详细信息')
@@ -93,7 +93,8 @@ for auction in auctions:
         m = m + 1
         n = n + 1
         time.sleep(random.random())
-Workbook.save('%s.xls'%(url))
+Workbook.save('taobao.xls')
+#Workbook.save('%s.xls'%(url))
 
 
 

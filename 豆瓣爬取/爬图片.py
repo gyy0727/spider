@@ -1,5 +1,4 @@
 import requests
-import urllib
 
 img_url='https://img04.sogoucdn.com/app/a/100520093/f9d5c084396d06f6-0c7006bf1d0bb8d5-44cfb308fd53675f90401be304dc572d.jpg'
 headers={
