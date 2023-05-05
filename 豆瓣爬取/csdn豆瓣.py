@@ -1,6 +1,8 @@
 import requests	 #导入请求包
 import re 	#正则
 
+from async_generator._tests.test_async_generator import double
+
 url = "https://movie.douban.com/top250"
 #添加User-Agent
 headers = {
