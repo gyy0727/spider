@@ -17,6 +17,8 @@ a2 = df['day']
 
 data1 = np.array(f)
 data2 = np.array(a2)
+data1=data1.reshape(-1,1)
+print(data1)
 x = np.vstack((data1, data2)).T
 from sklearn.cluster import KMeans
 
