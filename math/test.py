@@ -1,3 +1,5 @@
+import statistics
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -6,7 +8,8 @@ plt.rcParams['font.sans-serif']=['SimHei']
 plt.rcParams['axes.unicode_minus']=False
 
 
-i = 0
+
+
 
 # plt.plot([1,2,3,4]) #默认以列表的索引作为x，输入的是y
 # plt.ylabel('y')
@@ -38,9 +41,11 @@ plt.plot(a2, y1,label='输出与输入差为0')
 # plt.plot(a2,g, c = 'k', ls = '-.', marker = 'D', lw = 2)
 # plt.plot(a2,h, c = 'k', ls = '-.', marker = 'D', lw = 2)
 
-
-plt.plot(a2, a, color='red', alpha=0.3, linestyle='--', linewidth=5, marker='o', markeredgecolor='r',
-         markersize='20', markeredgewidth=5,label='region_1')
+s="region_8"
+plt.plot(a2,h, color='red', alpha=0.3, linestyle='--', linewidth=5, marker='o', markeredgecolor='r',
+         markersize='20', markeredgewidth=5,label=s)
+# plt.plot(9,3.42081, color='black', alpha=0.3, linestyle='--', linewidth=5, marker='.', markeredgecolor='b',
+#          markersize='30', markeredgewidth=8,label=s)
 # plt.plot(a2, b, color='green', alpha=0.3, linestyle='--', linewidth=5, marker='o', markeredgecolor='r', markersize='20',
 #          markeredgewidth=5,label='region_2')
 # plt.plot(a2, c, color='blue', alpha=0.3, linestyle='--', linewidth=5, marker='o', markeredgecolor='r', markersize='20',
@@ -64,6 +69,7 @@ plt.xlabel("日期",fontsize = 18)
 plt.ylabel("输入水流量和输出水流量之差") #对横纵轴进行说明
 plt.tick_params(labelsize = 14) #设置标签字体大小
 plt.xticks(range(0, 100, 1))
+plt.yticks(range(-15, 25, 5))
 plt.tight_layout()
 # plt.savefig("a.jpg")
 # plt.savefig("b.jpg")
@@ -73,5 +79,5 @@ plt.tight_layout()
 # plt.savefig("f.jpg")
 # plt.savefig("g.jpg")
 
-plt.savefig("a.jpg")
+plt.savefig(s+".jpg")
 plt.show()
