@@ -13,10 +13,10 @@ def Judge_outlier(s):
     std_dev = statistics.stdev(data1)
     mean_value = sum(data1) / len(data1)
     outlier = []
-    for i in range(0, 75):
+    for i in range(0, 80):
         ten = []
         k = i
-        for k in range(k, k + 25):
+        for k in range(k, k + 20):
             ten.append(data1[k])
         if (std_dev > 1):
             differ = max(ten) - min(ten)
@@ -58,7 +58,7 @@ def plow(s):
     plt.yticks(range(-15, 25, 5))
     plt.tight_layout()
 
-    plt.savefig("R_W_25_" + s + ".jpg")
+    plt.savefig("R_W_20_" + s + ".jpg")
     # plt.show()
 
 
