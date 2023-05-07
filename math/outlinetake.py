@@ -13,10 +13,10 @@ def Judge_outlier(s):
     std_dev = statistics.stdev(data1)
     mean_value = sum(data1) / len(data1)
     outlier = []
-    for i in range(0, 90):
+    for i in range(0, 75):
         ten = []
         k = i
-        for k in range(k, k + 10):
+        for k in range(k, k + 25):
             ten.append(data1[k])
         if (std_dev > 1):
             differ = max(ten) - min(ten)
@@ -58,8 +58,8 @@ def plow(s):
     plt.yticks(range(-15, 25, 5))
     plt.tight_layout()
 
-    plt.savefig(s + "outlier.jpg")
-    plt.show()
+    plt.savefig("R_W_25_" + s + ".jpg")
+    # plt.show()
 
 
 def retakeindex(a, s):
@@ -74,12 +74,12 @@ def retakeindex(a, s):
     return indexoutlier
 
 
-
-
 def main():
-    a = input("请输入想要聚类的区域:")  # 输入变量a的值
-    plow(a)
+    list = ["region_1", "region_2", "region_3", "region_4", "region_5", "region_6", "region_7", "region_8"]
+    for i in list:
+        plow(i)
 
 
 if __name__ == "__main__":
     main()
+# 11

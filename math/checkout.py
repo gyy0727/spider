@@ -17,14 +17,14 @@ for i in range(0, 90):
     k = i
     for k in range(k, k + 10):
         ten.append(data1[k])
-    if (std_dev > 1):
+    if std_dev > 1:
         differ = max(ten) - min(ten)
-        if (differ > (2 * std_dev)):
+        if differ > (2 * std_dev):
             outlier.append(max(ten))
             outlier.append(min(ten))
-    if (std_dev < 1):
+    if std_dev <= 1:
         differ = max(ten) - min(ten)
-        if (differ > (4 * std_dev)):
+        if differ > (4 * std_dev):
             outlier.append(max(ten))
             outlier.append(min(ten))
 
