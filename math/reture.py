@@ -44,12 +44,12 @@ def Judge_outlier(v):
     # h = abs(k)
     # print(h)
 
-    for i in range(0, 75):
+    for i in range(0, 70):
         ten = []
         day = []
         c = []
         k = i
-        for k in range(k, k + 25):
+        for k in range(k, k + 30):
             ten.append(data1[k])
             day.append(k)
         day = np.array(day)
@@ -60,7 +60,7 @@ def Judge_outlier(v):
         y_predict = lin_reg.predict(day.reshape(-1, 1))
         # print("k")
         # print(k)
-        l = 0
+        # l = 0
         # for l in range(20):
         #     h=y_predict[l]-ten[l]
         #
@@ -70,22 +70,37 @@ def Judge_outlier(v):
         #     print(l)
         # min1=min(list(c))
         # MIN = list(c).index(min1)
-
-        # 比较真值和预测值的r2
+        #
+        # # 比较真值和预测值的r2
         # print(y_predict)
+
+
         slope = lin_reg.coef_[0]
         r = r2_score(ten, y_predict)  # 评价指标r2分数
-        if (slope > 0.2):
-            if (r > 0.5):
-                l = 0
-                for l in range(20):
-                    h = y_predict[l] - ten[l]
-                    h = abs(h)
-                    c.append(h)
-                min1 = min(list(c))
-                MIN = list(c).index(min1)
+        # if (slope > 0.0):
+        #     if (r > 0.1):
+        #         l = 0
+        #         for l in range(10):
+        #             h = y_predict[l] - ten[l]
+        #             h = abs(h)
+        #             c.append(h)
+        #         min1 = min(list(c))
+        #         MIN = list(c).index(min1)
+        #         # a.append(i + 13)
+        #         a.append(MIN + i-1)
+
+        if (slope > 0.0):
+            if (r > 0.1):
+                three1 = ten[0]
+                three2 = ten[14]
+                three3 = ten[29]
                 # a.append(i + 13)
-                a.append(MIN + i-1)
+                a.append(three1)
+                a.append(three2)
+                a.append(three3)
+
+
+
     print("list2")
     list2 = []
     [list2.append(i) for i in a if not i in list2]
@@ -111,7 +126,8 @@ def plow(s):
     # for i in outlier:
     #     i=i+1
     # plt.scatter(indexoutlier, outlier, s=1000, c='red', edgecolors='black', linewidth=1, alpha=0.7, marker="s")
-    plt.scatter( outlier,indexoutlier, s=1000, c='red', edgecolors='black', linewidth=1, alpha=0.7, marker="p")
+    # plt.scatter( outlier,indexoutlier, s=1000, c='red', edgecolors='black', linewidth=1, alpha=0.7, marker="p")
+    plt.scatter(indexoutlier, outlier, s=1000, c='red', edgecolors='black', linewidth=1, alpha=0.7, marker="H")
     plt.legend(loc='best', fontsize=18, ncol=2, bbox_to_anchor=(0.8, 0.07))
     plt.xlabel("日期", fontsize=18)
     plt.ylabel("输入水流量和输出水流量之差")  # 对横纵轴进行说明
@@ -120,41 +136,44 @@ def plow(s):
     plt.yticks(range(-15, 25, 5))
     plt.tight_layout()
 
-    plt.savefig("L_W25_k0.2_r0.5_"+s + ".jpg")
+    plt.savefig("L_W30_k0_r0.1_middle"+s + ".jpg")
     # plt.show()
     # print(2)
 
-
-# def retakeindex(a, s):
-#     indexoutlier = []
-#     df = pd.read_excel(r"C:\Users\mu'qiu\Desktop\数据文件.xls")
-#     data1 = df[s]
-#     for i in a:
-#         b = list(data1).index(i)
-#         print(b)
-#         indexoutlier.append(b + 1)
-#     print(indexoutlier)
-#     return indexoutlier
 
 def retakeindex(a, s):
     indexoutlier = []
     df = pd.read_excel(r"C:\Users\mu'qiu\Desktop\数据文件.xls")
     data1 = df[s]
     for i in a:
-        b =data1[i-1]
-        # print("数据")
-        # print(b)
-        # print("日期")
-        # print(i)
-        indexoutlier.append(b)
-    print("indexoutlier")
+        b = list(data1).index(i)
+        print(b)
+        indexoutlier.append(b + 1)
+    # indexoutlier=indexoutlier.sort()
+    # indexoutlier=list(set(indexoutlier))
+    print(indexoutlier)
     return indexoutlier
+
+# def retakeindex(a, s):
+#     indexoutlier = []
+#     df = pd.read_excel(r"C:\Users\mu'qiu\Desktop\数据文件.xls")
+#     data1 = df[s]
+#     for i in a:
+#         b =data1[i-1]
+#         # print("数据")
+#         # print(b)
+#         # print("日期")
+#         # print(i)
+#         indexoutlier.append(b)
+#     print("indexoutlier")
+#     return indexoutlier
 
 
 
 
 def main():
-    list = ["region_1", "region_2", "region_3", "region_4", "region_5", "region_6", "region_7", "region_8"]
+    # list = ["region_1", "region_2", "region_3", "region_4", "region_5", "region_6", "region_7", "region_8"]
+    list = ["region_1"]
     for i in list:
         plow(i)
         print(i)
@@ -162,4 +181,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-    #1
+    #1111
