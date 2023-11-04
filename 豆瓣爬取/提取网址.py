@@ -4,10 +4,10 @@ from selenium import webdriver
 import xlwt
 
 def yuanam():#提取源码
-    browser = webdriver.Chrome()
-    browser.get(url='https://pic.sogou.com/pics?st=255&from=vr&query=%E7%BE%8E%E5%A5%B3&rawQuery=%E7%BE%8E%E5%A5%B3')
+    browser = webdriver.Edge()
+    browser.get(url='http://222.200.122.247:7780/')
     a=browser.page_source
-    finding(a)
+    # finding(a)
     browser.close()
 
 
@@ -15,9 +15,13 @@ def yuanam():#提取源码
 def xiazai(url):#下载照片
     img_url = 'url'
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36 Core/1.77.96.400 QQBrowser/10.9.4619.400'
+        'cookie': 'ASP.NET_SessionId=y4qjit45stn3w3q55pdsd345',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebkit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'
     }
-    response = requests.get(url=img_url, headers=headers)
+    proxies = {
+        'http': '10.20.199.28:8080',
+    }
+    response = requests.get(url=img_url, headers=headers,proxies=proxies)
     img_data = response.content
     with open('url.jpg', 'wb') as fp:
         fp.write(img_data)
